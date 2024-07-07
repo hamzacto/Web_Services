@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "com.example.grpc";
+option java_outer_classname = "HotelServiceProto";
+
+service HotelService {
+  rpc ReserveHotel (HotelReservationRequest) returns (HotelReservationResponse);
+}
+
+message HotelReservationRequest {
+  string hotel_id = 1;
+  string room_type = 2;
+  int32 number_of_rooms = 3;
+  string check_in_date = 4;
+  string check_out_date = 5;
+}
+
+message HotelReservationResponse {
+  string hotel_id = 1;
+  string hotel_name = 2;
+  string room_type = 3;
+  int32 number_of_rooms = 4;
+  double price_per_night = 5;
+  string check_in_date = 6;
+  string check_out_date = 7;
+}
